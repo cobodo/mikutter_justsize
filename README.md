@@ -1,0 +1,2 @@
+# mikutter_justsize
+postboxに残り文字数ではなく現在の文字数を表示するmikutterプラグイン

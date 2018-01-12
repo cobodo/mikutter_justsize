@@ -1,0 +1,10 @@
+---
+slug: :mikutter_justsize
+depends:
+  mikutter: 3.5.0
+  plugin:
+  - gtk
+version: '1.0'
+author: '@cobodo@mstdn.kanagu.info'
+name: mikutter_justsize
+description: postboxに残り文字数ではなく現在の文字数を表示するmikutterプラグイン
