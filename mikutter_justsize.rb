@@ -1,22 +1,9 @@
 Plugin.create :justsize do
   class Gtk::PostBox < Gtk::EventBox
-    def extractor
-      if Twitter.const_defined?(:Extractor)
-        Twitter::Extractor
-      else
-        Twitter::TwitterText::Extractor
-      end
-    end
-
-    def remain_charcount
+    def update_remain_charcount
       if not widget_post.destroyed?
-        text = trim_hidden_regions(widget_post.buffer.text + UserConfig[:footer])
-        extractor.extract_urls(text).map{|url|
-          if url.length < posted_url_length(url)
-            -(posted_url_length(url) - url.length)
-          else
-            url.length - posted_url_length(url) end
-        }.inject(text.size, &:+)
+        text = widget_post.buffer.text + UserConfig[:footer]
+        @remain.set_text(text.size.to_s) if not @remain.destroyed?
       end
     end
   end
